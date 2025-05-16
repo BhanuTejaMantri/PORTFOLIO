@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhanu Teja Mantri - Professional Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --tertiary-color: #ff8a00;
+            --quaternary-color: #dd2476;
+            --dark-text: #333;
+            --light-text: #fff;
+            --section-padding: 2.5rem;
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 138, 0, 0.15) 0%, rgba(255, 0, 128, 0.15) 100%);
+            z-index: 1;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            background: linear-gradient(45deg, var(--tertiary-color), var(--quaternary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .headline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 1.5rem auto;
+            line-height: 1.6;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: var(--section-padding);
+            position: relative;
+        }
+        
+        section:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        section:nth-child(even) {
+            background: linear-gradient(to right, #f9f9ff, #f3f3ff);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--tertiary-color), var(--quaternary-color), var(--primary-color), var(--secondary-color));
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            font-size: 2rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tertiary-color), var(--quaternary-color));
+            border-radius: 2px;
+        }
+        
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 5px solid;
+        }
+        
+        .skill-category:nth-child(1) {
+            border-color: var(--primary-color);
+        }
+        
+        .skill-category:nth-child(2) {
+            border-color: var(--secondary-color);
+        }
+        
+        .skill-category:nth-child(3) {
+            border-color: var(--tertiary-color);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-item {
+            background: linear-gradient(135deg, #f5f7fa, #e4e7ed);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 46%;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background: white;
+            border: 4px solid var(--primary-color);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 54%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -13px;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -13px;
+        }
+        
+        .timeline-item:nth-child(4n+1)::before {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .timeline-item:nth-child(4n+2)::before {
+            background: linear-gradient(135deg, var(--secondary-color), var(--tertiary-color));
+        }
+        
+        .timeline-item:nth-child(4n+3)::before {
+            background: linear-gradient(135deg, var(--tertiary-color), var(--quaternary-color));
+        }
+        
+        .timeline-item:nth-child(4n)::before {
+            background: linear-gradient(135deg, var(--quaternary-color), var(--primary-color));
+        }
+        
+        .date {
+            color: var(--light-text);
+            font-weight: 500;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--quaternary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .project-card:nth-child(2) .project-image {
+            background: linear-gradient(135deg, var(--quaternary-color), var(--tertiary-color));
+        }
+        
+        .project-card:nth-child(3) .project-image {
+            background: linear-gradient(135deg, var(--tertiary-color), var(--secondary-color));
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0 1rem;
+        }
+        
+        .project-tag {
+            background: linear-gradient(135deg, #f5f7fa, #e4e7ed);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-tag:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .responsibilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .responsibility-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .responsibility-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--tertiary-color), var(--quaternary-color));
+        }
+        
+        .responsibility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .responsibility-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .responsibility-org {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .achievements-list {
+            list-style-type: none;
+        }
+        
+        .achievement-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--quaternary-color), var(--primary-color));
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .achievement-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 138, 0, 0.15) 0%, rgba(255, 0, 128, 0.15) 100%);
+            z-index: 1;
+        }
+        
+        footer .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, var(--tertiary-color), var(--quaternary-color));
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                left: 0;
+            }
+            
+            .timeline-item::before {
+                left: 18px;
+                top: 30px;
+            }
+            
+            .timeline-item:nth-child(even)::before {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd)::before {
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-image">BTM</div>
+                <h1>Bhanu Teja Mantri</h1>
+                <p class="headline">Professional with a strong foundation in computer science, seeking to leverage technical skills and passion for innovation to solve complex problems, derive actionable insights, and contribute to impactful projects.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:mantribhanuteja@gmail.com" style="color: white; text-decoration: none;">mantribhanuteja@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="tel:+918500589068" style="color: white; text-decoration: none;">+91-8500589068</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>🔗</span>
+                        <a href="https://linkedin.com/in/bhanu-teja-mantri-152910234" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-section">
+                <div>
+                    <p>I am a passionate professional currently pursuing my Master's degree at Northeastern University. With a solid foundation in Computer Science from Chandigarh University and a Post Graduate Program from IIIT Bangalore, I am equipped with the technical skills and knowledge to tackle complex challenges across various domains.</p>
+                    <br>
+                    <p>My passion lies in leveraging innovative approaches to solve real-world problems and create meaningful impact. I thrive in collaborative environments that foster continuous learning and professional growth. My experience spans from technical development to event management and content creation, making me a versatile professional ready to take on diverse challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">HTML</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">Microsoft Azure</div>
+                        <div class="skill-item">Cloud Data</div>
+                        <div class="skill-item">Jupyter Notebook</div>
+                        <div class="skill-item">Anaconda</div>
+                        <div class="skill-item">Visual Studio Code</div>
+                        <div class="skill-item">Google Colab</div>
+                        <div class="skill-item">Azure Data Studio</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Additional Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">Microsoft Office</div>
+                        <div class="skill-item">Video Editing (Filmora 13)</div>
+                        <div class="skill-item">Content Creation</div>
+                        <div class="skill-item">Project Management</div>
+                        <div class="skill-item">Event Management</div>
+                        <div class="skill-item">Creative Storytelling</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p class="date">2025 - Present</p>
+                    <h3>Northeastern University</h3>
+                    <p>Master's in Informatics</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="date">2024 - 2025</p>
+                    <h3>IIIT Bangalore, Karnataka</h3>
+                    <p>Post Graduate Program in Data Science</p>
+                    <p>GPA: 3.5</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="date">Graduated 2024</p>
+                    <h3>Chandigarh University, Gharuan Punjab</h3>
+                    <p>Bachelor of Engineering and Technology in Computer Science & Engineering</p>
+                    <p>GPA: 3.2</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="date">Graduated 2019</p>
+                    <h3>Narayana College, Visakhapatnam</h3>
+                    <p>Senior High School - Physics, Chemistry, & Mathematics</p>
+                    <p>Percentage: 85.7%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="positions">
+        <div class="container">
+            <h2>Positions of Responsibility</h2>
+            <div class="responsibilities">
+                <div class="responsibility-card">
+                    <h3 class="responsibility-title">IPL Team Delhi Capitals Crew Member</h3>
+                    <p class="responsibility-org">Visakhapatnam, IPL 2024 Edition</p>
+                    <p class="date">March - April 2024</p>
+                    <ul>
+                        <li>Assisted in the coordination and management of IPL matches and events for the Delhi Capitals team</li>
+                        <li>Worked closely with event managers to ensure smooth execution of match-day operations in Vizag</li>
+                        <li>Managed fan services including ticketing, merchandise sales, and customer inquiries</li>
+                        <li>Implemented crowd control measures and emergency response protocols</li>
+                    </ul>
+                </div>
+                <div class="responsibility-card">
+                    <h3 class="responsibility-title">Virtual Experience Program Participant</h3>
+                    <p class="responsibility-org">Cognizant</p>
+                    <p class="date">October 2022</p>
+                    <ul>
+                        <li>Participated in the Agile Methodology Virtual Experience Program</li>
+                        <li>Conducted comparative analysis between Waterfall and Agile methodologies</li>
+                        <li>Evaluated project management practices and their impact on project success</li>
+                        <li>Collaborated with team members to implement agile principles in project scenarios</li>
+                    </ul>
+                </div>
+                <div class="responsibility-card">
+                    <h3 class="responsibility-title">Engineering Program Participant</h3>
+                    <p class="responsibility-org">Goldman Sachs</p>
+                    <p class="date">June - July 2022</p>
+                    <ul>
+                        <li>Selected for the Engineering Virtual Experience Program</li>
+                        <li>Analyzed the structure of various password databases</li>
+                        <li>Applied knowledge of hashing algorithms and encryption methods</li>
+                        <li>Used professional security tools like John the Ripper and Hashcat</li>
+                        <li>Strengthened understanding of cybersecurity practices and strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cryptocurrency Analysis Platform</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">React.js</span>
+                            <span class="project-tag">Redux</span>
+                        </div>
+                        <p>Conducted comprehensive analysis of multiple cryptocurrencies including Bitcoin, Ethereum, and emerging altcoins. Created a cryptocurrency visualizer, analyzer, and converter using modern web technologies.</p>
+                        <p class="date">October 2022 - June 2023</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🍽️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Restaurant Locator with Google Places API</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Google Places API</span>
+                            <span class="project-tag">Location Services</span>
+                            <span class="project-tag">Google Assistant</span>
+                        </div>
+                        <p>Developed a Restaurant Locator application that helps users find nearby restaurants based on current location or specified address. Integrated user-friendly features for navigation and information retrieval.</p>
+                        <p class="date">February - April 2022</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📋</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Project Tracking App with App Sheet</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Google Sheets</span>
+                            <span class="project-tag">App Sheet</span>
+                            <span class="project-tag">Project Management</span>
+                        </div>
+                        <p>Created a customized Project Tracking application using App Sheet and Google Sheets integration. Designed intuitive interfaces for project monitoring and management.</p>
+                        <p class="date">September - December 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="responsibility-card">
+                <h3 class="responsibility-title">Microsoft Certified: Azure Fundamentals</h3>
+                <p>Earned certification demonstrating foundational knowledge of cloud services and the Microsoft Azure platform. This certification validates understanding of cloud concepts, core Azure services, security, privacy, compliance, and trust.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2>Achievements & Activities</h2>
+            <ul class="achievements-list">
+                <li class="achievement-item">
+                    <h3 class="achievement-title">Guinness World Records: Largest Human Image of a Waving National Flag</h3>
+                    <p class="date">August 2022</p>
+                    <p>Participated on behalf of the university to create a Guinness World Record for the largest human image of a waving national flag. This event showcased exceptional teamwork and patriotism, bringing together numerous participants to achieve a visually striking representation of national pride.</p>
+                </li>
+                <li class="achievement-item">
+                    <h3 class="achievement-title">NCC A Certificate | National Cadet Corps</h3>
+                    <p class="date">May 2018</p>
+                    <p>Awarded the NCC A Certificate for completing the first level of school training. This certificate recognizes the foundational skills and discipline acquired through the National Cadet Corps, focusing on character building, leadership, and physical fitness.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;">Let's Connect</h2>
+            <p>Thank you for visiting my portfolio. I'm always open to discussing new opportunities and collaborations.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/bhanu-teja-mantri-152910234" class="social-link" target="_blank">in</a>
+                <a href="mailto:mantribhanuteja@gmail.com" class="social-link">✉️</a>
+                <a href="tel:+918500589068" class="social-link">📱</a>
+            </div>
+            <p>© 2025 Bhanu Teja Mantri - Professional Portfolio</p>
+        </div>
+    </footer>
+</body>
+</html>
